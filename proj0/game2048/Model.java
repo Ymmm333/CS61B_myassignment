@@ -141,22 +141,33 @@ public class Model extends Observable {
                 if(board.tile(c,r)!=null) {
                     int nr=r+1;
                     int nc=c;
-                    while(nr<=3) {
-                        if (board.tile(nc, nr) == null|| board.tile(nc, nr).value() == board.tile(c, r).value() ) {
-                            if (board.move(nc, nr, board.tile(c, r))&& merged[nc][nr] != true) {
-                                score += board.tile(c, r).value();
-                                merged[nc][nr] = true;
-                                break;
-                            }else{
-                                nr++;
+                    Tile t = board.tile(nc, nr);
+                    if (t != null){
+                        while(nr<=3) {
+                            Tile nt = board.tile(nc, nr);
+                            if(nt != null) {
+                                if (merged[nc][nr]=true||nt.value() != t.value()){
+                                    nr--;
+                                    break;
+                                }
                             }
-                        }else{
-                            break;
+                            if(nr==3) {
+                                break;
+                            }
+                            nr++;
+                        }
+                        if (board.move(nc, nr, board.tile(c, r))) {
+                            merged[nc][nr] = true;
+                            score += board.tile(c, r).value();
+                        }
+                        if(nr!=r){
+                            changed = true;
                         }
                     }
                 }
             }
         }
+        board.setViewingPerspective(Side.NORTH);
         //move is merge or move to the null place
         checkGameOver();
         if (changed) {
