@@ -141,12 +141,12 @@ public class Model extends Observable {
                 if(board.tile(c,r)!=null) {
                     int nr=r+1;
                     int nc=c;
-                    Tile t = board.tile(nc, nr);
+                    Tile t = board.tile(c, r);
                     if (t != null){
                         while(nr<=3) {
                             Tile nt = board.tile(nc, nr);
                             if(nt != null) {
-                                if (merged[nc][nr]=true||nt.value() != t.value()){
+                                if (merged[nc][nr] ||nt.value() != t.value()){
                                     nr--;
                                     break;
                                 }
