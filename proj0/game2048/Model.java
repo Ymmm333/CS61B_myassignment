@@ -238,8 +238,8 @@ public class Model extends Observable {
             for (int i = 0; i < 4; i++) {
                 int newCol = t.col() + move[i][0];
                 int newRow = t.row() + move[i][1];
-                if (newCol >= 0 && newCol < b.size() && newRow >= 0 && newRow <= b.size()) {
-                    if (b.tile(newRow, newCol).value() == t.value()) {
+                if (newCol >= 0 && newCol < b.size() && newRow >= 0 && newRow < b.size()) {
+                    if (b.tile(newCol, newRow).value() == t.value()) {
                         return true;
                     }
                 }
