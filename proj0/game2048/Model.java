@@ -149,6 +149,8 @@ public class Model extends Observable {
                                 if (merged[nc][nr] ||nt.value() != t.value()){
                                     nr--;
                                     break;
+                                }else{
+                                    break;
                                 }
                             }
                             if(nr==3) {
