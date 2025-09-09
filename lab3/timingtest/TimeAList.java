@@ -34,8 +34,8 @@ public class TimeAList {
             for(int j=0;j<n;j++) {
                 test.addLast(j);
             }
-            Ns.addLast(n);
             double timeInSeconds = sw.elapsedTime();
+            Ns.addLast(n);
             times.addLast(timeInSeconds);
             opCounts.addLast(n);
             n*=2;
