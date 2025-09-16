@@ -64,24 +64,24 @@ public class DebugExercise2 {
 //        return sum;
 //    }
 
-    public static int[] arrayMax_right(int[] x, int[] y) {
-
-        if (x.length != y.length) {
-            System.out.println("ERROR! Arrays don't match");
-            return null;
-        }
-
-        int[] t = new int[x.length];
-        for(int i=0; i<y.length; i++){
-            if(x[i] > y[i]){
-                t[i]=x[i];
-            }else{
-                t[i]=y[i];
-            }
-        }
-        return t;
-    }
-    public static int arraySum_right(int[] x) {
+//    public static int[] arrayMax(int[] x, int[] y) {
+//
+//        if (x.length != y.length) {
+//            System.out.println("ERROR! Arrays don't match");
+//            return null;
+//        }
+//
+//        int[] t = new int[x.length];
+//        for(int i=0; i<y.length; i++){
+//            if(x[i] > y[i]){
+//                t[i]=x[i];
+//            }else{
+//                t[i]=y[i];
+//            }
+//        }
+//        return t;
+//    }
+    public static int arraySum(int[] x) {
         int ans = 0;
         for(int i=0; i<x.length; i++){
             ans+=x[i];
@@ -93,10 +93,10 @@ public class DebugExercise2 {
      *  the result should be 57.
      * */
     public static int sumOfElementwiseMaxes(int[] a, int[] b) {
-        int[] maxes=arrayMax_right(a,b);
+        int[] maxes=arrayMax(a,b);
         //int[] maxes = arrayMax(a, b);
         //int sumofMaxes = arraySum(maxes);
-        int sumofMaxes = arraySum_right(maxes);
+        int sumofMaxes = arraySum(maxes);
         return sumofMaxes;
     }
 
