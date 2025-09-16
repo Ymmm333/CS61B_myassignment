@@ -54,23 +54,49 @@ public class DebugExercise2 {
     }
 
     /** Returns the sum of all elements in x. */
-    public static int arraySum(int[] x) {
-        int i = 0;
-        int sum = 0;
-        while (i < x.length) {
-            sum = sum + add(sum, x[i]);
-            i = i + 1;
-        }
-        return sum;
-    }
+//    public static int arraySum(int[] x) {
+//        int i = 0;
+//        int sum = 0;
+//        while (i < x.length) {
+//            sum = sum + add(sum, x[i]);
+//            i = i + 1;
+//        }
+//        return sum;
+//    }
 
+    public static int[] arrayMax_right(int[] x, int[] y) {
+
+        if (x.length != y.length) {
+            System.out.println("ERROR! Arrays don't match");
+            return null;
+        }
+
+        int[] t = new int[x.length];
+        for(int i=0; i<y.length; i++){
+            if(x[i] > y[i]){
+                t[i]=x[i];
+            }else{
+                t[i]=y[i];
+            }
+        }
+        return t;
+    }
+    public static int arraySum_right(int[] x) {
+        int ans = 0;
+        for(int i=0; i<x.length; i++){
+            ans+=x[i];
+        }
+        return ans;
+    }
     /** Returns the sum of the element-wise max of a and b.
      *  For example if a = {2, 0, 10, 14} and b = {-5, 5, 20, 30},
      *  the result should be 57.
      * */
     public static int sumOfElementwiseMaxes(int[] a, int[] b) {
-        int[] maxes = arrayMax(a, b);
-        int sumofMaxes = arraySum(maxes);
+        int[] maxes=arrayMax_right(a,b);
+        //int[] maxes = arrayMax(a, b);
+        //int sumofMaxes = arraySum(maxes);
+        int sumofMaxes = arraySum_right(maxes);
         return sumofMaxes;
     }
 
